@@ -1,6 +1,6 @@
 .side-bar{
   width: 300px;
-  color: $font-white;
+  color: $font_white;
   .header{
     background-color: $side_header_black;
     height: 100px;
@@ -17,7 +17,7 @@
       &__list{
         display: inline-block;
         .icon{
-          color: $font-white;
+          color: $font_white;
         }
       }
     }
@@ -30,13 +30,13 @@
     .group{
       padding: 20px 0;
       &__name{
-        color: $font-white;
+        color: $font_white;
         font-size: 15px;
         font-weight: bold;
       }
       &__message{
         margin-top: 5px;
-        color: $font-white;
+        color: $font_white;
         font-size: 11px;
         font-weight: bold;
       }

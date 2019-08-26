@@ -10,13 +10,13 @@
       &__current-group{
         margin-top: 35px;
         font-size: 20px;
-        color: $font-black;
+        color: $font_black;
       }
       &__members{
         margin-top: 15px;
         font-size: 12px;
         display: flex;
-        color: $font-grey;
+        color: $font_grey;
         &__member{
           display: inline-block;
           padding-left: 5px;
@@ -46,20 +46,20 @@
       &__upper{
         display: flex;
         &__user{
-          color: $font-light-black;
+          color: $font_light_black;
           font-size: 16px;
           font-weight: bold;
         }
         &__date{
           padding-left: 10px;
-          color: $font-grey;
+          color: $font_grey;
           font-size: 12px;
         }
       }
       &__lower{
         margin-top: 10px;
         &__text{
-          color: $font-light-black;
+          color: $font_light_black;
           font-size: 14px;
           margin-bottom: 40px;
         }
@@ -97,7 +97,7 @@
       float: right;
       width: 100px;
       height: 50px;
-      color: $font-white;
+      color: $font_white;
       background-color: $chat_blue;
       border: none;
     }
