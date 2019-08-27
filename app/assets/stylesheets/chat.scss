@@ -10,13 +10,13 @@
       &__current-group{
         margin-top: 35px;
         font-size: 20px;
-        color: $font_black;
+        color: $black;
       }
       &__members{
         margin-top: 15px;
         font-size: 12px;
         display: flex;
-        color: $font_grey;
+        color: $grey;
         &__member{
           display: inline-block;
           padding-left: 5px;
@@ -26,19 +26,19 @@
 
     &__right{
       float: right;
-      border: 1px solid $chat_blue;
+      border: 1px solid $light_blue;
       margin-top: 28px;
       height: 40px;
       line-height: 40px;
       &__btn{
-        color: $chat_blue;
+        color: $light_blue;
         margin: 0 20px;
       }
     }
   }
 
   .messages{
-    background-color: $chat_white;
+    background-color: $light_white;
     box-sizing: border-box;
     padding: 46px 40px 0;
     height: calc(100% - 100px - 90px);
@@ -46,20 +46,20 @@
       &__upper{
         display: flex;
         &__user{
-          color: $font_light_black;
+          color: $light_black;
           font-size: 16px;
           font-weight: bold;
         }
         &__date{
           padding-left: 10px;
-          color: $font_grey;
+          color: $grey;
           font-size: 12px;
         }
       }
       &__lower{
         margin-top: 10px;
         &__text{
-          color: $font_light_black;
+          color: $light_black;
           font-size: 14px;
           margin-bottom: 40px;
         }
@@ -68,7 +68,7 @@
   }
 
   .form{
-    background-color: $chat_grey;
+    background-color: $light_grey;
     box-sizing: border-box;
     height: 90px;
     padding: 20px 40px;
@@ -79,7 +79,7 @@
       width: calc(100% - 150px);
     }
     &__mask{
-      background-color: $chat_white;
+      background-color: $light_white;
       padding-right: 10px;
       float: left;
       height: 50px;
@@ -97,8 +97,8 @@
       float: right;
       width: 100px;
       height: 50px;
-      color: $font_white;
-      background-color: $chat_blue;
+      color: $white;
+      background-color: $light_blue;
       border: none;
     }
   }
