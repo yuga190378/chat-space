@@ -6,40 +6,22 @@
     .header
       .header__left
         .header__left__current-group
-          グループ名
+          = @group.name
         %ul.header__left__members
           Member :
-          %li.header__left__members__member
-            ユーザ名
-          %li.header__left__members__member
-            ユーザ名
+          - @group.users.each do |user|
+            %li.header__left__members__member
+              = user.name
       .header__right
         .header__right__btn
           Edit
     .messages
-      .message
-        .message__upper
-          .message__upper__user
-            ユーザ名
-          .message__upper__date
-            2019/08/23(Fri) 13:35:23
-        .message__lower
-          .message__lower__text
-            メッセージ
-      .message
-        .message__upper
-          .message__upper__user
-            ユーザ名
-          .message__upper__date
-            2019/08/23(Fri) 13:37:00
-        .message__lower
-          .message__lower__text
-            メッセージ
+      = render @messages
     .form
-      %form
-        %input.form__message
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
         .form__mask
-          %label.form__mask__image{for: 'message_image'}
+          = f.label :image, class: 'form__mask__image' do
             = fa_icon 'picture-o', class: 'icon'
-            %input.hidden#message_image{type: 'file'}
-        %input.form__submit{type: 'submit', value: 'Send'}
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
