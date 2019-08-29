@@ -1,6 +1,6 @@
 .side-bar
   .header
-    %p.header__name
+    %h3.header__name
       = current_user.name
     %ul.header__menu
       %li.header__menu__list
@@ -10,13 +10,10 @@
         = link_to edit_user_path(current_user) do
           = fa_icon 'cog', class: 'icon'
   .groups
-    .group
-      %p.group__name
-        グループ名
-      %p.group__message
-        最新のメッセージ
-    .group
-      %p.group__name
-        グループ名
-      %p.group__message
-        最新のメッセージ
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません。
