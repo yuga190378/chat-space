@@ -1,43 +1,24 @@
 $(function(){
   function buildHTML(message){
-    if ( message.image ) {
-      var html =
-       `<div class="message" data-message-id=${message.id}>
-          <div class="message__upper">
-            <div class="message__upper__user">
-              ${message.user_name}
-            </div>
-            <div class="message__upper__date">
-              ${message.date}
-            </div>
+    var messageImage = (message.image != null) ? `<img src="${message.image}" class="message__lower__image" >` : "";
+    var html =
+      `<div class="message" data-message-id=${message.id}>
+        <div class="message__upper">
+          <div class="message__upper__user">
+            ${message.user_name}
           </div>
-          <div class="message__lower">
-            <p class="message__lower__content">
-              ${message.content}
-            </p>
+          <div class="message__upper__date">
+            ${message.date}
           </div>
-          <asset_path src=${message.image} class="message__lower__image" >
-        </div>`
-      return html;
-    } else {
-      var html =
-       `<div class="message" data-message-id=${message.id}>
-          <div class="message__upper">
-            <div class="message__upper__user">
-              ${message.user_name}
-            </div>
-            <div class="message__upper__date">
-              ${message.date}
-            </div>
-          </div>
-          <div class="message__lower">
-            <p class="message__lower__content">
-              ${message.content}
-            </p>
-          </div>
-        </div>`
-      return html;
-    };
+        </div>
+        <div class="message__lower">
+          <p class="message__lower__content">
+            ${message.content}
+          </p>
+        </div>
+        ${messageImage}
+      </div>`
+    return html;
   }
   $('.js-form').on('submit', function(e){
     e.preventDefault();
