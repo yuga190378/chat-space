@@ -37,7 +37,7 @@
       }
     }
   }
-
+  
   .messages{
     background-color: $light_white;
     box-sizing: border-box;
@@ -64,6 +64,10 @@
           color: $light_black;
           font-size: 14px;
           margin-bottom: 40px;
+        }
+        &__image{
+          width: 300px;
+          height: 200px;
         }
       }
     }
