@@ -13,8 +13,7 @@
             %li.header__left__members__member
               = user.name
       .header__right
-        .header__right__btn
-          Edit
+        = link_to 'Edit', edit_group_path(@group), class: 'header__right__btn'
     .messages
       = render @messages
     .form
