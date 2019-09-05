@@ -40,8 +40,8 @@ $(function(){
   });
 
   $(document).on("click", ".user-search-add", function(){
-    var user_id = $(this).attr('data-user-id');
-    var user_name = $(this).attr('data-user-name');
+    var user_id = $(this).data('user-id');
+    var user_name = $(this).data('user-name');
     var select_list = $(".chat-group-users");
     var html = `<div class='chat-group-user'>
                   <input name='group[user_ids][]' type='hidden' value='${user_id}'>
