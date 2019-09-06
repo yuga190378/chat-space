@@ -20,25 +20,6 @@ $(function(){
     return html;
   };
 
-  function buildMessageHTML(message){
-    var messageContent = (message.content != null) ? `<p class="message__lower__content">${message.content}</p>` : "";
-    var messageImage = (message.image.url != null) ? `<img src="${message.image.url}" class="message__lower__image" >` : "";
-    var html = `<div class="message" data-message-id=${message.id}>
-                  <div class="message__upper">
-                    <div class="message__upper__user">
-                      ${message.user_name}
-                    </div>
-                    <div class="message__upper__date">
-                      ${message.created_at}
-                    </div>
-                  </div>
-                  <div class="message__lower">
-                    ${messageContent}
-                    ${messageImage}
-                  </div>
-                </div>`
-    return html;
-  };
 
   function reloadMessages(){
     last_message_id = $('.message:last').data('message-id');
@@ -51,7 +32,7 @@ $(function(){
     .done(function(messages) {
       var insertHTML = '';
       messages.forEach(function(message){
-        insertHTML = insertHTML + buildMessageHTML(message);
+        insertHTML = insertHTML + buildHTML(message);
       });
       $('.messages').append(insertHTML);
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
