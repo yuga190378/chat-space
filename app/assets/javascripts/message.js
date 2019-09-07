@@ -1,5 +1,6 @@
 $(function(){
   function buildHTML(message){
+    var messageContent = (message.content != null) ? `<p class="message__lower__content">${message.content}</p>` : "";
     var messageImage = (message.image != null) ? `<img src="${message.image}" class="message__lower__image" >` : "";
     var html =
       `<div class="message" data-message-id=${message.id}>
@@ -12,14 +13,34 @@ $(function(){
           </div>
         </div>
         <div class="message__lower">
-          <p class="message__lower__content">
-            ${message.content}
-          </p>
+          ${messageContent}
+          ${messageImage}
         </div>
-        ${messageImage}
       </div>`
     return html;
-  }
+  };
+
+
+  function reloadMessages(){
+    last_message_id = $('.message:last').data('message-id');
+    $.ajax({
+      url: 'api/messages',
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      var insertHTML = '';
+      messages.forEach(function(message){
+        insertHTML = insertHTML + buildHTML(message);
+      });
+      $('.messages').append(insertHTML);
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
+    })
+    .fail(function() {
+    });
+  };
+
   $('.js-form').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -43,4 +64,10 @@ $(function(){
     })
     return false;
   });
+
+  var controller = $('body').data('controller');
+  var action = $('body').data('action');
+  if (controller == "messages" && action == "index") {
+    setInterval(reloadMessages, 5000);
+  };
 });
